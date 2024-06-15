@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "DankookB";
+  font-weight: normal;
+  src: url("./fonts/dankook-font.woff") format("woff");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "PretendardB";
+  font-weight: normal;
+  src: url("./fonts/pretendard-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PretendardS";
+  font-weight: normal;
+  src: url("./fonts/pretendard-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PretendardR";
+  font-weight: normal;
+  src: url("./fonts/pretendard-regular.woff") format("woff");
+}
+
+body {
+  font-family: "PretendardS", "Apple SD Gothic Neo", sans-serif;
 }
