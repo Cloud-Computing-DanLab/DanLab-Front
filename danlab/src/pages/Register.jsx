@@ -15,6 +15,12 @@ const Register = () => {
         selfIntroduction: '',
     });
 
+    const navigate = useNavigate();
+    const moveToProfile = () => {
+        window.location.href = '/profile';
+        console.log('move to profile');
+    };
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -81,7 +87,7 @@ const Register = () => {
                                onChange={handleChange} placeholder=" ex) 연구 분야, 관심 공부 분야, 연구실 내 역할 등"></textarea>
                     </label>
                     <div className="div-register-button">
-                        <button className="register-button" type="submit">회원가입</button>
+                        <button className="register-button" type="submit" onClick={moveToProfile}>회원가입</button>
                     </div>
                 </form>
             </div>

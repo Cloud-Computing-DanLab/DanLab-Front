@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from "./pages/Login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
         <Routes>
             <Route path="/" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
+            <Route path="profile" element={<Profile/>}/>
 
         </Routes>
     </BrowserRouter>
