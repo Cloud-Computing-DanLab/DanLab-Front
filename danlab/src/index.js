@@ -4,14 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from "./pages/Login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Register from "./pages/Register";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Login/>}/>
-            {/*<Route path="board" element={<Board/>}/>*/}
-            {/*<Route path="register" element={<Register/>}/>*/}
+            <Route path="register" element={<Register/>}/>
+
         </Routes>
     </BrowserRouter>
 );
