@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './FreeBoard.css';
 import logo_danlab from "../images/logo_danlab.png"
 import line_2 from "../images/line_2.png"
 import ic_menu from "../images/ic_menu.png"
@@ -52,6 +53,11 @@ function FreeBoard(props) {
     const moveToMain = () => {
         window.location.href = '/main';
         console.log('move to main');
+    };
+
+    const makePost = () => {
+        window.location.href = '/post';
+        console.log('move to post');
     };
 
     const toggleMenu = () => {
@@ -133,6 +139,9 @@ function FreeBoard(props) {
                 </p>
             </div>
             {renderTable()}
+            <div className="div-make-post-button">
+                <button className="make-post-button" type="submit" onClick={makePost}>글쓰기</button>
+            </div>
         </div>
     );
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Register.css';
 import logo_danlab from "../images/logo_danlab.png"
 import line_2 from "../images/line_2.png"
-import ic_menu from "../images/ic_menu.png"
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -14,9 +13,9 @@ const Register = () => {
         selfIntroduction: '',
     });
 
-    const moveToProfile = () => {
-        window.location.href = '/profile';
-        console.log('move to profile');
+    const moveToMain = () => {
+        window.location.href = '/main';
+        console.log('move to main');
     };
 
     const handleChange = (e) => {
@@ -37,7 +36,6 @@ const Register = () => {
             <div className="title-container">
                 <div className="title-top">
                     <img src={logo_danlab} alt="DanLab Logo" className="logo-danlab-small"/>
-                    <img src={ic_menu} alt="menu" width="35" height="35"/>
                 </div>
                 <img src={line_2} alt="Line" className="line-2"/>
                 <p className="board-title">회원가입</p>
@@ -85,7 +83,7 @@ const Register = () => {
                                onChange={handleChange} placeholder=" ex) 연구 분야, 관심 공부 분야, 연구실 내 역할 등"></textarea>
                     </label>
                     <div className="div-register-button">
-                        <button className="register-button" type="submit" onClick={moveToProfile}>회원가입</button>
+                        <button className="register-button" type="submit" onClick={moveToMain}>회원가입</button>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,19 @@
+.make-post-button {
+    padding: 10px 24px;
+    background-color: #0C1D70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.make-post-button:hover {
+    background-color: #000;
+}
+
+.div-make-post-button {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 200px;
+}

@@ -30,7 +30,6 @@ function LabProfile(props) {
                     </div>
                 </div>
             </div>
-            <p className="lab-profile-title">연구실 소속 프로젝트</p>
         </div>
     );
 }
