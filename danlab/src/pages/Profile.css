@@ -4,3 +4,35 @@
     padding: 20px;
     text-align: left;
 }
+
+.icon-menu {
+    cursor: pointer;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust based on your layout */
+    right: 70px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px 0;
+}
+
+.menu-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: PretendardS,sans-serif;
+    font-size: 15px;
+    color: #0C1D70;
+}
+
+.menu-item:hover {
+    background-color: #f1f1f1;
+}

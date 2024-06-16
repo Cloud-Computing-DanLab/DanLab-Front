@@ -6,8 +6,9 @@ import Login from "./pages/Login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
-import Board from "./pages/LabBoard";
 import LabInfo from "./pages/LabInfo";
+import LabBoard from "./pages/LabBoard";
+import FreeBoard from "./pages/FreeBoard";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,9 +17,9 @@ root.render(
             <Route path="/" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
             <Route path="profile" element={<Profile/>}/>
-            <Route path="main" element={<Board/>}/>
+            <Route path="main" element={<LabBoard/>}/>
+            <Route path="free-board" element={<FreeBoard/>}/>
             <Route path="lab-info" element={<LabInfo/>}/>
-
         </Routes>
     </BrowserRouter>
 );

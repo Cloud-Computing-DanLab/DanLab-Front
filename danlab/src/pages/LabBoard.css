@@ -9,8 +9,10 @@
 
 .clicked-category {
     color: #0C1D70;
+    cursor: pointer;
 }
 
 .unclicked-category {
     color: #A2A2A2;
+    cursor: pointer;
 }

@@ -32,4 +32,5 @@ th {
 td {
     font-family: PretendardR,sans-serif;
     font-size: 13px;
+    cursor: pointer;
 }

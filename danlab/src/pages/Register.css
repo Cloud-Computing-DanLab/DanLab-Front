@@ -33,6 +33,7 @@
 .logo-danlab-small {
     width: 177px;
     height: 34px;
+    cursor: pointer;
 }
 
 .board-title {
