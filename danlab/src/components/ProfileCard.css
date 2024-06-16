@@ -1,4 +1,5 @@
 .profile-card {
+    width: 360px;
     background-color: #fff;
     border: 1px solid #BCBCBC;
     border-radius: 5px;
@@ -56,5 +57,5 @@
 }
 
 .profile-introduction p {
-    white-space: pre-line; /* To preserve new lines in the introduction text */
+    white-space: pre-line;
 }
