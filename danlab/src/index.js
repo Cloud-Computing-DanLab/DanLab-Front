@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Board from "./pages/LabBoard";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
             <Route path="/" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
             <Route path="profile" element={<Profile/>}/>
+            <Route path="main" element={<Board/>}/>
 
         </Routes>
     </BrowserRouter>

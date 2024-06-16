@@ -3,7 +3,7 @@ import './ProfileCard.css';
 
 function ProfileCard(props) {
     return (
-            <div className="profile-card">
+            <div className="profile-card-container">
                 <div className="profile-info">
                     <div className="profile-item">
                         <img src={props.img} className="icon"/>

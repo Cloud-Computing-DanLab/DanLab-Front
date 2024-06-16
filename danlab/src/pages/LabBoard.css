@@ -1,0 +1,16 @@
+.category {
+    display: flex;
+    align-items: center;
+    font-family: PretendardB,sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+
+.clicked-category {
+    color: #0C1D70;
+}
+
+.unclicked-category {
+    color: #A2A2A2;
+}

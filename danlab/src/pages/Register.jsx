@@ -3,7 +3,6 @@ import './Register.css';
 import logo_danlab from "../images/logo_danlab.png"
 import line_2 from "../images/line_2.png"
 import ic_menu from "../images/ic_menu.png"
-import {useNavigate} from "react-router-dom";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +14,6 @@ const Register = () => {
         selfIntroduction: '',
     });
 
-    const navigate = useNavigate();
     const moveToProfile = () => {
         window.location.href = '/profile';
         console.log('move to profile');

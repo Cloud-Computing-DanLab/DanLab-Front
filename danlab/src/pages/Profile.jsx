@@ -24,11 +24,16 @@ const Profile = () => {
     안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~`
     };
 
+    const moveToMain = () => {
+        window.location.href = '/main';
+        console.log('move to main');
+    };
+
     return (
         <div className="container">
             <div className="title-container">
                 <div className="title-top">
-                    <img src={logo_danlab} alt="DanLab Logo" className="logo-danlab-small"/>
+                    <img src={logo_danlab} alt="DanLab Logo" className="logo-danlab-small" onClick={moveToMain}/>
                     <img src={ic_menu} alt="menu" width="35" height="35"/>
                 </div>
                 <img src={line_2} alt="Line" className="line-2"/>
