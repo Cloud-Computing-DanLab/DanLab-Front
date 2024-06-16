@@ -3,13 +3,11 @@ import './Profile.css';
 import logo_danlab from "../images/logo_danlab.png";
 import ic_menu from "../images/ic_menu.png";
 import line_2 from "../images/line_2.png";
-import ic_student from "../images/ic_student.png";
 import ProfileCard from "../components/ProfileCard";
 
 const Profile = () => {
     const profileData = {
         name: '탁세하',
-        img: ic_student,
         department: '소프트웨어학과',
         year: '4학년',
         affiliation: '학부생',
@@ -42,7 +40,7 @@ const Profile = () => {
             <div className="profile-container">
                 <ProfileCard name={profileData.name} department={profileData.department} year={profileData.year}
                              affiliation={profileData.affiliation} introduction={profileData.introduction}
-                             img={profileData.img} lab={profileData.lab}/>
+                             lab={profileData.lab}/>
             </div>
         </div>
 
