@@ -12,20 +12,21 @@ function LabProfile(props) {
                         <img src={ic_lab} className="icon" alt="Lab"/>
                         <div>
                             <div className="one-line">
-                                <p className="gray-text-13">연구실명</p> <p className="black-text-13">{props.name}</p>
+                                <p className="gray-text-13">연구실명&nbsp;</p> <p className="black-text-13">{props.name}</p>
                             </div>
                             <div className="one-line">
-                                <p className="gray-text-13">소속&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p className="black-text-13">{props.department}</p>
+                                <p className="gray-text-13">지도교수&nbsp;</p> <p className="black-text-13">{props.leader}</p>
                             </div>
                             <div className="one-line">
-                                <p className="gray-text-13">지도교수</p> <p className="black-text-13">{props.professor}</p>
+                                <p className="gray-text-13">Contact</p> <p
+                                className="black-text-13">{props.contacts}</p>
                             </div>
                             <div className="one-line">
-                                <p className="gray-text-13">웹사이트</p> <p
-                                className="black-text-13">{props.link}</p>
+                                <p className="gray-text-13">웹사이트&nbsp;</p> <p
+                                className="black-text-13">{props.site}</p>
                             </div>
-                            <p className="gray-text-13">주요 연구분야</p>
-                            <p className="black-text-13 preline">{props.researchField}</p>
+                            <p className="gray-text-13">상세 페이지&nbsp;</p>
+                            <p className="black-text-13 preline">{props.info}</p>
                         </div>
                     </div>
                 </div>

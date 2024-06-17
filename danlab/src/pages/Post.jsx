@@ -3,14 +3,17 @@ import './Post.css';
 import logo_danlab from "../images/logo_danlab.png"
 import line_2 from "../images/line_2.png"
 import ic_menu from "../images/ic_menu.png"
+import {makeArticle, register} from "../Fetch";
 
 function Post() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const [postData, setPostData] = useState({
-        title: '',
-        writer: '',
-        content: '',
-    });
+        member_id: 1,
+        title: "",
+        detail: "",
+        category: ""
+    })
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -27,6 +30,11 @@ function Post() {
         console.log('move to main');
     };
 
+    const moveToFreeBoard = () => {
+        window.location.href = '/free-board';
+        console.log('move to free');
+    };
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setPostData({
@@ -36,8 +44,19 @@ function Post() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(postData);
+        postInfo(e);
+        // moveToFreeBoard();
     };
+
+    const postInfo = async (body) => {
+        try {
+            const response = await makeArticle(body);
+            console.log(response);
+        } catch (error) {
+            // alert("올바르지 못한 코드 값 입니다.")
+            // window.location.href = '/';
+        }
+    }
 
     return (
         <div className="container">
@@ -70,16 +89,16 @@ function Post() {
                     </div>
                     <div className="post-input-container">
                         <label className="post-label">
-                            작성자
+                            카테고리
                         </label>
-                        <input className="post-input set-margin" type="text" name="writer" value={postData.writer}
+                        <input className="post-input set-margin" type="text" name="writer" value={postData.category}
                                onChange={handleChange}/>
                     </div>
                     <div className="post-input-container">
                         <label className="post-label">
                             내용
                         </label>
-                        <textarea className="post-content" name="content" value={postData.content}
+                        <textarea className="post-content" name="content" value={postData.detail}
                                   onChange={handleChange}></textarea>
                     </div>
                 </form>

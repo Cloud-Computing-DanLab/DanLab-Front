@@ -3,18 +3,44 @@ import './Login.css';
 import logo_danlab from "../images/logo_danlab.png"
 import logo_kakao from "../images/logo_kakao.png"
 import logo_google from "../images/logo_google.png"
-import {useNavigate} from "react-router-dom";
+import {loginPage} from "../Fetch";
 
 const Login = () => {
-    const navigate = useNavigate();
-    const handleKakaoLogin = () => {
-        navigate('register');
-        console.log('Kakao login');
+    const handleKakaoLogin = async () => {
+        try {
+            const response = await loginPage();
+            const data = response.data.res_obj;
+
+            console.log(data);
+
+            if (data[0].platform_type === "KAKAO") {
+                window.location.href = data[0].url;
+            } else if (data[1].platform_type === "KAKAO") {
+                window.location.href = data[1].url;
+            }
+
+        } catch (error) {
+            // alert("올바르지 못한 코드 값 입니다.")
+            // window.location.href = '/';
+        }
     };
 
-    const handleGoogleLogin = () => {
-        // Add your Google login logic here
-        console.log('Google login');
+    const handleGoogleLogin = async () => {
+        try {
+            const response = await loginPage();
+            const data = response.data.res_obj;
+
+            console.log(data);
+
+            if (data[0].platform_type === "GOOGLE") {
+                window.location.href = data[0].url;
+            } else if (data[1].platform_type === "GOOGLE") {
+                window.location.href = data[1].url;
+            }
+        } catch (error) {
+            // alert("올바르지 못한 코드 값 입니다.")
+            // window.location.href = '/';
+        }
     };
 
     return (

@@ -1,47 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './LabInfo.css';
 import logo_danlab from "../images/logo_danlab.png";
 import ic_menu from "../images/ic_menu.png";
 import line_2 from "../images/line_2.png";
 import LabProfile from "../components/LabProfile";
 import LabProjectTable from "../components/LabProjectTable";
+import {getLabIdEventList, getLabInfo} from "../Fetch";
+import {useParams} from "react-router-dom";
 
 const labData = {
     name: 'BoanLab',
-    department: 'SW융합대학 컴퓨터공학과',
-    professor: '남재현',
-    link: `https://www.boanlab.com`,
-    researchField: `Cloud Workload Observability and Security
-    Cloud Infrastructure and Security
-    5G Security
-    AI-powered Security`
+    contacts: 'SW융합대학 컴퓨터공학과',
+    leader: '남재현',
+    info: `https://www.boanlab.com`,
+    site: `https://www.boanlab.com`,
 };
 
 const projects = [
     {
-        project: '다수의 자세 추정 모델 경량화 프로젝트',
-        labName: '알고리즘 연구실',
-        department: 'SW융합대학 컴퓨터공학과',
+        id: 100,
+        title: '다수의 자세 추정 모델 경량화 프로젝트',
+        detail: '알고리즘 연구실',
     },
-    {
-        project: '신뢰부팅 및 플랫폼 무결성 검증 및 업데이트 지원 기술 · 플랫폼 무결성 확인 및 업데이트 관리 상태 확인을 위한 플랫폼 기술',
-        labName: '모바일운영체제 연구실',
-        department: 'SW융합대학 모바일시스템공학과',
-    },
-    {
-        project: '클라우드 환경에서 암호화된 데이터를 활용을 지원하기 위한 기능 부가형 암호화 기술',
-        labName: '정보보안 연구실',
-        department: 'SW융합대학 사이버보안학과',
-    },
-    {
-        project: 'Wearable Device & Human Computer Interaction',
-        labName: '지능정보시스템 연구실',
-        department: 'SW융합대학 컴퓨터공학과',
-    }
 ];
 
 const LabInfo = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [labInfo, setLabInfo] = useState(labData);
+    const [projectInfo, setProjectInfo] = useState(projects);
+    const { labId } = useParams();
 
     const moveToMain = () => {
         window.location.href = '/main';
@@ -57,6 +44,28 @@ const LabInfo = () => {
         { name: '연구실 소개', link: '/main' },
         { name: '연구실 일상 공유', link: '/free-board' },
     ];
+
+    const setLabProfile = async (labId) => {
+        const response = await getLabInfo(labId);
+        const data = response.data.res_obj;
+
+        setLabInfo(data)
+
+        console.log(data);
+    }
+
+    const setLabEvents = async (labId) => {
+        const response = await getLabIdEventList(labId);
+        const data = response.data.res_obj.content;
+
+        setProjectInfo(data)
+
+        console.log(data);
+    }
+
+    useEffect(() => {
+        setLabProfile(labId);
+    }, []);
 
     return (
         <div className="container">
@@ -76,16 +85,16 @@ const LabInfo = () => {
                     </div>
                 </div>
                 <img src={line_2} alt="Line" className="line-2"/>
-                <p className="board-title">연구실 정보</p>
+                <p className="board-title" onClick={moveToMain}>연구실 정보</p>
             </div>
             <div className="lab-info-container">
-                <LabProfile name={labData.name} department={labData.department} professor={labData.professor}
-                            link={labData.link} researchField={labData.researchField}/>
+                <LabProfile name={labInfo.name} info={labInfo.info} leader={labInfo.leader}
+                            contacts={labInfo.contacts} site={labInfo.site}/>
             </div>
-            <div className="lab-info-container">
-                <p className="lab-profile-title">연구실 소속 프로젝트</p>
-                <LabProjectTable table={projects}/>
-            </div>
+            {/*<div className="lab-info-container">*/}
+            {/*    <p className="lab-profile-title">연구실 소속 프로젝트</p>*/}
+            {/*    /!*<LabProjectTable table={projectInfo}/>*!/*/}
+            {/*</div>*/}
         </div>
 
     );

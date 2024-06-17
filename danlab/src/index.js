@@ -21,10 +21,12 @@ root.render(
             <Route path="register" element={<Register/>}/>
             <Route path="profile" element={<Profile/>}/>
             <Route path="main" element={<LabBoard/>}/>
+            <Route path="/labs/:labId" element={<LabInfo/>}/>
+            <Route path="/lab-event/:id" element={<ProjectInfo/>}/>
             <Route path="free-board" element={<FreeBoard/>}/>
-            <Route path="lab-info" element={<LabInfo/>}/>
-            <Route path="project-info" element={<ProjectInfo/>}/>
-            <Route path="free-info" element={<FreeInfo/>}/>
+            <Route path="/free/:id" element={<FreeInfo/>}/>
+            {/*<Route path="project-info" element={<ProjectInfo/>}/>*/}
+            {/*<Route path="free-info" element={<FreeInfo/>}/>*/}
             <Route path="post" element={<Post/>}/>
         </Routes>
     </BrowserRouter>

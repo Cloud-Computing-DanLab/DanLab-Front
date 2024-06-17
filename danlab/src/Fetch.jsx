@@ -7,32 +7,24 @@ const ARTICLE_BASE_URL = 'http://172.25.235.130:31179/article'
 
 // AUTH
 export const authenticate = (code, state) => {
-    return axios.get(`${AUTH_BASE_URL}/auth/kakao/callback?code=${code}&state=${state}`);
+    return axios.get(`${AUTH_BASE_URL}/kakao/callback?code=${code}&state=${state}`);
 };
 
 export const loginPage = () => {
-    return axios.get(`${AUTH_BASE_URL}/auth/loginPage`)
+    return axios.get(`${AUTH_BASE_URL}/loginPage`)
 }
 
 export const register = (body) => {
-    return axios.post(`${AUTH_BASE_URL}/auth/signup`, body)
+    return axios.post(`${AUTH_BASE_URL}/signup/`, body)
 }
 
-// export const tokenValid = (token) => {
-//     return axios.get(`${AUTH_BASE_URL}/auth/valid`, {
-//         headers: {
-//             "Authorization": `Bearer ${token}`
-//         }
-//     });
-// };
-
 export const getMyInfo = () => {
-    return axios.get(`${AUTH_BASE_URL}/auth/info`)
+    return axios.get(`${AUTH_BASE_URL}/info/`)
 }
 
 // LAB
-export const getLabList = (searchKeyword) => {
-    return axios.get(`${LAB_BASE_URL}/lab?page=0&size=10&searchKeyword=${searchKeyword}`)
+export const getLabList = () => {
+    return axios.get(`${LAB_BASE_URL}/`)
 }
 
 export const getLabInfo = (labId) => {
@@ -40,8 +32,12 @@ export const getLabInfo = (labId) => {
 }
 
 // LAB-EVENT
-export const getLabEventList = (labId) => {
-    return axios.get(`${LAB_EVENT_BASE_URL}?labId=${labId}&page=0&size=10`)
+export const getLabEventList = () => {
+    return axios.get(`${LAB_EVENT_BASE_URL}/`)
+}
+
+export const getLabIdEventList = (labId) => {
+    return axios.get(`${LAB_EVENT_BASE_URL}/${labId}`)
 }
 
 export const getLabEventInfo = (labId) => {
@@ -50,9 +46,13 @@ export const getLabEventInfo = (labId) => {
 
 // ARTICLE
 export const getArticleList = () => {
-    return axios.get(`${ARTICLE_BASE_URL}?page=0&size=10`)
+    return axios.get(`${ARTICLE_BASE_URL}/`)
+}
+
+export const getArticleInfo = (id) => {
+    return axios.get(`${ARTICLE_BASE_URL}/${id}`)
 }
 
 export const makeArticle = (body) => {
-    return axios.post(`${ARTICLE_BASE_URL}`, body)
+    return axios.post(`${ARTICLE_BASE_URL}/`, body)
 }

@@ -1,54 +1,66 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './FreeBoard.css';
 import logo_danlab from "../images/logo_danlab.png"
 import line_2 from "../images/line_2.png"
 import ic_menu from "../images/ic_menu.png"
 import FreePostTable from "../components/FreePostTable";
+import {getArticleList, getLabIdEventList, getLabInfo} from "../Fetch";
 
 const freePosts = [
     {
-        name: '연구실 생활 한달 후기',
-        writer: '이주성',
-    },
-    {
-        name: '연구실 청소 당법 제비뽑기 결과',
-        writer: '남재현',
-    },
-    {
-        name: '소프트웨어학과 연구실에서 함께 연구 하실 분 구합니다',
-        writer: '탁세하',
+        id: 0,
+        memberId: 0,
+        title: '',
+        detail: '',
+        category: '',
     },
 ];
 
 const projectReviews = [
     {
-        name: '연구실에서의 첫 프로젝트를 마치며...',
-        writer: '이주성',
+        id: 0,
+        memberId: 0,
+        title: '프로젝트 후기',
+        detail: '연구실에서의 첫 프로젝트를 마치며...',
+        category: 'REVIEW',
     },
     {
-        name: '프로젝트 유경험자가 알려주는 프로젝트 기본 꿀팁',
-        writer: '탁세하',
+        id: 0,
+        memberId: 0,
+        title: '프로젝트 후기',
+        detail: '프로젝트 유경험자가 알려주는 프로젝트 기본 꿀팁',
+        category: 'REVIEW',
     },
 ];
 
 const projectTechs = [
     {
-        name: 'Storage 시스템에 관한 배경지식',
-        writer: '최종무',
+        id: 0,
+        memberId: 0,
+        title: 'Storage 시스템에 관한 배경지식',
+        detail: '본격적인 스토리지 시스템 교육에 앞서..',
+        category: 'TECH',
     },
     {
-        name: '클라우드 컴퓨팅 기본 개념',
-        writer: '남재현',
+        id: 0,
+        memberId: 0,
+        title: '클라우드 컴퓨팅 기본 개념',
+        detail: '클컴 수업 유경험자가 알려주는 기술 꿀팁',
+        category: 'TECH',
     },
     {
-        name: '쿠버네티스 정복하기',
-        writer: '이주성',
+        id: 0,
+        memberId: 0,
+        title: '쿠버네티스 정복하기',
+        detail: '쿠버네티스에서 MSA 구축하기',
+        category: 'TECH',
     },
 ];
 
 function FreeBoard(props) {
     const [currentTable, setCurrentTable] = useState('free');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [freePostList, setFreePosts] = useState(freePosts);
 
     const moveToMain = () => {
         window.location.href = '/main';
@@ -85,7 +97,7 @@ function FreeBoard(props) {
     const renderTable = () => {
         switch (currentTable) {
             case 'free':
-                return <FreePostTable table={freePosts} />;
+                return <FreePostTable table={freePostList} />;
             case 'review':
                 return <FreePostTable table={projectReviews} />;
             case 'tech':
@@ -94,6 +106,19 @@ function FreeBoard(props) {
                 return null;
         }
     };
+
+    const setFreePostList = async () => {
+        const response = await getArticleList();
+        const data = response.data.res_obj.content;
+
+        setFreePosts(data)
+
+        console.log(data);
+    }
+
+    useEffect(() => {
+        setFreePostList();
+    }, []);
 
     return (
         <div className="container">

@@ -4,25 +4,42 @@ import logo_danlab from "../images/logo_danlab.png";
 import ic_menu from "../images/ic_menu.png";
 import line_2 from "../images/line_2.png";
 import ProfileCard from "../components/ProfileCard";
+import {getMyInfo} from "../Fetch";
 
 const profileData = {
     name: '탁세하',
-    department: '소프트웨어학과',
-    year: '4학년',
+    major: '소프트웨어학과',
+    studentId: '32214744',
     affiliation: '학부생',
     lab: '',
-    introduction: `안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~
-    안녕하세요~~~ 열심히 공부하고 싶습니다~~~~~~~~`
+    intro: `안녕하세요!!`
 };
 
 const Profile = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [userInfo, setUserInfo] = useState({
+        memberId: 1,
+        labId: 0,
+        name: '',
+        studentId: '',
+        major: '',
+        isStudent: true,
+        intro: '',
+    });
+
+    const getMyInfo = async () => {
+        const response = await getMyInfo();
+        const data = response.data.res_obj;
+
+        userInfo.name = data.name;
+        userInfo.id = data.memberId;
+        userInfo.studentId = data.studentCode;
+        userInfo.major = data.department;
+        userInfo.isStudent = data.isStudent;
+        userInfo.intro = data.intro;
+
+        console.log(data);
+    }
 
     const moveToMain = () => {
         window.location.href = '/main';
@@ -59,9 +76,8 @@ const Profile = () => {
                 <p className="board-title">마이 프로필</p>
             </div>
             <div className="profile-container">
-                <ProfileCard name={profileData.name} department={profileData.department} year={profileData.year}
-                             affiliation={profileData.affiliation} introduction={profileData.introduction}
-                             lab={profileData.lab}/>
+                <ProfileCard name={profileData.name} major={profileData.major} studentId={profileData.studentId}
+                             affiliation={profileData.affiliation} intro={profileData.intro} />
             </div>
         </div>
     );

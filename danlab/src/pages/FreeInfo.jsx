@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ProjectInfo.css';
 import logo_danlab from "../images/logo_danlab.png";
 import ic_menu from "../images/ic_menu.png";
 import line_2 from "../images/line_2.png";
 import line_1 from "../images/line_1.png";
+import {getArticleInfo, getLabIdEventList, getLabInfo} from "../Fetch";
+import {useParams} from "react-router-dom";
 
 const FreeInfo = () => {
     const [formData, setFormData] = useState({
         title: '',
-        writer: '',
-        content: '',
+        category: '',
+        detail: '',
     });
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const { id } = useParams();
     const moveToMain = () => {
         window.location.href = '/main';
         console.log('move to main');
@@ -28,6 +30,19 @@ const FreeInfo = () => {
         {name: '연구실 소개', link: '/main'},
         {name: '연구실 일상 공유', link: '/free-board'},
     ];
+
+    const setFreeInfo = async (id) => {
+        const response = await getArticleInfo(id);
+        const data = response.data.res_obj;
+
+        setFormData(data)
+
+        console.log(data);
+    }
+
+    useEffect(() => {
+        setFreeInfo(id);
+    }, []);
 
     return (
         <div className="container">
@@ -53,20 +68,17 @@ const FreeInfo = () => {
                 <div className="one-line-pj">
                     <p className="black-text-13">제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <p
-                        className="black-text-13-r">연구실 생활 한달 후기</p>
+                        className="black-text-13-r">{formData.title}</p>
                 </div>
                 <img src={line_1} alt="Line" className="line-2"/>
                 <div className="one-line-pj">
-                    <p className="black-text-13">작성자</p> <p
-                    className="black-text-13-r">이주성</p>
+                    <p className="black-text-13">카테고리</p> <p
+                    className="black-text-13-r">{formData.category}</p>
                 </div>
                 <img src={line_1} alt="Line" className="line-2"/>
                 <div className="one-line-pj">
                     <p className="black-text-13">내용</p>
-                    <p className="black-text-13-r-block">내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
-                        내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
-                        내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
-                        내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 </p>
+                    <p className="black-text-13-r-block">{formData.detail}</p>
                 </div>
                 <div className="line-container">
                     <img src={line_1} alt="Line" className="line-2"/>

@@ -19,10 +19,10 @@ function ProfileCard(props) {
                                 <p className="gray-text-13">이름</p> <p className="black-text-13">{props.name}</p>
                             </div>
                             <div className="one-line">
-                                <p className="gray-text-13">학과</p> <p className="black-text-13">{props.department}</p>
+                                <p className="gray-text-13">학과</p> <p className="black-text-13">{props.major}</p>
                             </div>
                             <div className="one-line">
-                                <p className="gray-text-13">학년</p> <p className="black-text-13">{props.year}</p>
+                                <p className="gray-text-13">학번</p> <p className="black-text-13">{props.studentId}</p>
                             </div>
                             <div className="one-line">
                                 <p className="gray-text-13">소속</p> <p className="black-text-13">{props.affiliation}</p>
@@ -38,7 +38,7 @@ function ProfileCard(props) {
                 </div>
                 <div className="profile-introduction">
                     <p className="gray-text-13">자기소개</p>
-                    <p className="black-text-13">{props.introduction}</p>
+                    <p className="black-text-13">{props.intro}</p>
                 </div>
             </div>
     );
