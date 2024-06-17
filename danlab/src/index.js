@@ -10,6 +10,8 @@ import LabInfo from "./pages/LabInfo";
 import LabBoard from "./pages/LabBoard";
 import FreeBoard from "./pages/FreeBoard";
 import Post from "./pages/Post";
+import ProjectInfo from "./pages/ProjectInfo";
+import FreeInfo from "./pages/FreeInfo";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,8 +23,8 @@ root.render(
             <Route path="main" element={<LabBoard/>}/>
             <Route path="free-board" element={<FreeBoard/>}/>
             <Route path="lab-info" element={<LabInfo/>}/>
-            <Route path="project-info" element={<LabInfo/>}/>
-            <Route path="free-info" element={<LabInfo/>}/>
+            <Route path="project-info" element={<ProjectInfo/>}/>
+            <Route path="free-info" element={<FreeInfo/>}/>
             <Route path="post" element={<Post/>}/>
         </Routes>
     </BrowserRouter>

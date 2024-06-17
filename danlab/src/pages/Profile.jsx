@@ -64,7 +64,6 @@ const Profile = () => {
                              lab={profileData.lab}/>
             </div>
         </div>
-
     );
 };
 

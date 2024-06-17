@@ -1,0 +1,42 @@
+.project-body-container {
+    width: 840px;
+}
+
+.line-2 {
+    width: 100%;
+    height: 1px;
+}
+
+.one-line-pj {
+    height: 15px;
+    margin: 0 80px
+}
+
+.one-line-space {
+    display: flex;
+    justify-content: space-between;
+}
+
+.black-text-13-r {
+    font-size: 13px;
+    font-family: PretendardR,sans-serif;
+    color: black;
+    display: inline-block;
+    margin-left: 17px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.black-text-13-r-block {
+    font-size: 13px;
+    font-family: PretendardR,sans-serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 150%;
+}
+
+.line-container {
+    display: flex;
+    margin-top: 500px;
+}
