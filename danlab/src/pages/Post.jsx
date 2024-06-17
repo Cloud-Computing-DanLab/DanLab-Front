@@ -44,8 +44,9 @@ function Post() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        postInfo(e);
-        // moveToFreeBoard();
+        setPostData(e);
+        postInfo(postData);
+        moveToFreeBoard();
     };
 
     const postInfo = async (body) => {
@@ -53,7 +54,6 @@ function Post() {
             const response = await makeArticle(body);
             console.log(response);
         } catch (error) {
-            // alert("올바르지 못한 코드 값 입니다.")
             // window.location.href = '/';
         }
     }
